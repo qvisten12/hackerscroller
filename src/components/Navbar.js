@@ -7,7 +7,7 @@ const Navbar = () => {
         <p className="font-medium text-base">HackerScroller</p>
         <a
           className="text-gray-400"
-          href="https://github.com"
+          href="https://github.com/qvisten12/hackerscroller"
           target="_blank"
           rel="noreferrer"
         >
