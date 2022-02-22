@@ -1,4 +1,3 @@
-import axios from "axios";
 import { selectFields } from "../utils/selectFields";
 
 export const baseUrl = "https://hacker-news.firebaseio.com/v0/";
@@ -6,15 +5,16 @@ export const newStoriesUrl = `${baseUrl}topstories.json`;
 export const storyUrl = `${baseUrl}item/`;
 
 export const getStory = async (storyId) => {
-  const result = await axios
-    .get(`${storyUrl + storyId}.json`)
-    .then(({ data }) => data && selectFields(data));
+  const res = await fetch(`${storyUrl + storyId}.json`);
+  let data = await res.json();
+  data = selectFields(data);
 
-  return result;
+  return data;
 };
 
 export const getStoryIds = async () => {
-  const result = await axios.get(newStoriesUrl).then(({ data }) => data);
+  const res = await fetch(newStoriesUrl);
+  const data = await res.json();
 
-  return result;
+  return data;
 };

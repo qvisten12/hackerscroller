@@ -11,7 +11,12 @@ export const StoriesContainer = () => {
   const { count } = useInfiniteScroll();
 
   useEffect(() => {
-    getStoryIds().then((data) => setStoryIds(data));
+    const getData = async () => {
+      const data = await getStoryIds();
+      setStoryIds(data);
+    };
+
+    getData();
   }, []);
 
   return (
